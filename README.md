@@ -6,7 +6,7 @@ gol-midi is an program that generates configurable MIDI signals based on Game of
 
 ## Why?
 
-I wanted a way to consume my [`gol-lib`](https://github.com/ChrisRenfrow/gol-lib) project as a library to test it from the user's perspective.
+I wanted a way to consume my [`yagoll`](https://github.com/ChrisRenfrow/yagoll) project as a library to test it from the user's perspective.
 
 ### Yeah, but why MIDI?
 

@@ -1,0 +1,5 @@
+[midi]
+bindings = [
+  ["activity", { event = "note", state = "on", note = 68, threshold = 0.5 }],
+  ["ratio", { event = "note", state = "off", note = 60, threshold = 0.25}]
+]

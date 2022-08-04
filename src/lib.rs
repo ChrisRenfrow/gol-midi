@@ -1,51 +1,14 @@
+pub use crate::config::*;
+
+pub mod config;
+
 use yagoll::{Board, Cell};
 
 use std::error::Error;
 use std::io::Write;
 use std::{io, thread, time};
 
-/// A struct representing application configuration
-pub struct Config {
-    input_file: String,
-    midi: MidiConfig,
-}
-
-impl Config {
-    pub fn new(args: &[String]) -> Result<Config, &str> {
-        if args.len() < 3 {
-            return Err("not enough arguments");
-        }
-        let input_file = args[1].clone();
-        let midi_cfg_file = args[2].clone();
-        let midi = MidiConfig::new(&midi_cfg_file);
-        Ok(Config { input_file, midi })
-    }
-}
-
-/// Represents the board metrics available for mapping to MIDI events
-enum BoardMetric {
-    Ratio,
-    Activity,
-}
-
-/// Supported MIDI events
-enum MidiMsg {
-    Channel,
-    Note,
-    Pitch,
-}
-
-/// Bindings for board metrics to MIDI messages, read from a file
-struct MidiConfig {
-    bindings: Vec<(BoardMetric, MidiMsg)>,
-}
-
-impl MidiConfig {
-    fn new(cfg_file: &str) -> Self {
-        // TODO:
-        MidiConfig { bindings: vec![] }
-    }
-}
+use config::Config;
 
 /// The main process loop
 pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {

@@ -8,3 +8,4 @@ edition = "2018"
 
 [dependencies]
 yagoll = "0.1.1"
+clap = "3.2.16"

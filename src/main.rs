@@ -1,10 +1,10 @@
-use gol_midi::config::Config;
+use gol_midi::config::{Args, Config};
 
-use clap::*;
+use clap::Parser;
 use std::{env, process};
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
+    let args = Args::parse();
 
     let config = Config::new(&args).unwrap_or_else(|err| {
         eprintln!("Problem parsing arguments: {}", err);
